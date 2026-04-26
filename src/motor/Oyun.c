@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "motor/Oyun.h"
 #include "servisler/OyunBaslaticiServis.h"
 
@@ -8,11 +9,12 @@ void OyunSonuSatirSutunSor(const Oyun this){
 }
 
 // public fonksiyonlar
-Oyun new_Oyun(int turSayisi, int* sayiDizi){
+Oyun new_Oyun(int turSayisi, int* sayiDizi, int SayiDiziUz){
 	Oyun this;
 	this = (Oyun) malloc(sizeof(struct OYUN));
 	this->toplamTurSayisi = turSayisi;
 	this->sayiDizi = sayiDizi;
+	this->sayiDiziUz = SayiDiziUz;
 	this->sehirler = NULL; //OyunBaslaticiServisten alacak.
 	this->oyunBaslaticiServis = new_OyunBaslaticiServis();
 	this->baslat = &baslat;
@@ -21,12 +23,19 @@ Oyun new_Oyun(int turSayisi, int* sayiDizi){
 }
 
 void baslat(Oyun this){
-	this->sehirler = this->oyunBaslaticiServis->yerleskeOlustur(this->oyunBaslaticiServis);
+	this->sehirler = this->oyunBaslaticiServis->
+	yerleskeOlustur(this->oyunBaslaticiServis, this->sayiDizi);
+
+	// test
+	for(int i = 0; i < this->sayiDiziUz; i++){
+		printf("%d\n",this->sayiDizi[i]);
+	}
+	
 }
 
 
 // TODO
-static void delete_Oyun(const Oyun this){
+void delete_Oyun(const Oyun this){
 	if(this->sayiDizi != NULL){
 		free(this->sayiDizi);
 	}

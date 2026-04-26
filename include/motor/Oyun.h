@@ -7,6 +7,7 @@
 struct OYUN
 {
 	int* sayiDizi;
+	int sayiDiziUz;
 	int toplamTurSayisi;
 	Sehir* sehirler;
 	OyunBaslaticiServis oyunBaslaticiServis;
@@ -18,7 +19,7 @@ struct OYUN
 typedef struct OYUN* Oyun;
 
 //public fonksiyonlar
-Oyun new_Oyun(int turSayisi, int* sayiDizi);
+Oyun new_Oyun(int turSayisi, int* sayiDizi, int sayiDiziUz);
 void baslat(const Oyun);
 void delete_Oyun(const Oyun);
 

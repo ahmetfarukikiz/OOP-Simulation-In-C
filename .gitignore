@@ -1,0 +1,8 @@
+# Çalıştırılabilir dosyalar
+*.exe
+*.out
+*.app
+
+# Derleme dosyaları (Object files)
+*.o
+*.obj
