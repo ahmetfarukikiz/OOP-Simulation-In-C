@@ -8,6 +8,7 @@ BaslangicKuralHesaplayici new_BaslangicKuralHesaplayici(){
 	this->gercekSayiHesapla = &gercekSayiHesapla;
 	this->gercekNufusHesapla = &gercekNufusHesapla;
 	this->delete_Bkh = &delete_Bkh;
+	return this;
 }
 
 // Mahalleleri ilçelere eşit dağılabilir hale getirir
@@ -16,6 +17,9 @@ int gercekSayiHesapla(int sayi){
 		int onlar, birler;
 		onlar = (sayi % 100) / 10;
 		birler = sayi % 10;
+
+		// 07 gibi tek bas. sayı girilirse 17 olur
+		if(onlar == 0) onlar = 1; 
 
 		while (birler == 0 || birler % onlar != 0) {
 			birler = (birler + 1) % 10;
