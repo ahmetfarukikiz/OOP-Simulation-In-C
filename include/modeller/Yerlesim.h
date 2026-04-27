@@ -10,6 +10,7 @@ struct YERLESIM {
 typedef struct YERLESIM* Yerlesim;
 
 Yerlesim new_Yerlesim(char*, int);
+char* toString_Yerlesim(Yerlesim);
 void delete_Yerlesim(Yerlesim);
 
 #endif
