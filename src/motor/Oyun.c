@@ -24,7 +24,7 @@ Oyun new_Oyun(int turSayisi, int* sayiDizi, int SayiDiziUz){
 
 void baslat(Oyun this){
 	this->sehirler = this->oyunBaslaticiServis->
-	yerleskeOlustur(this->oyunBaslaticiServis, this->sayiDizi);
+	yerleskeOlustur(this->oyunBaslaticiServis, this->sayiDizi, this->sayiDiziUz);
 
 	// test
 	for(int i = 0; i < this->sayiDiziUz; i++){

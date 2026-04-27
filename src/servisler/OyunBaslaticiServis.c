@@ -9,8 +9,19 @@ OyunBaslaticiServis new_OyunBaslaticiServis(){
 	return this;
 }
 
-Sehir* yerleskeOlustur(const OyunBaslaticiServis this, int* sayiDizi){
-	
+// Oyunun başlangıç değerlerini ayarlar ve içi dolu şehir listesini döndürür
+Sehir* yerleskeOlustur(const OyunBaslaticiServis this, int* sayiDizi, int sayiDiziUz){
+	Sehir* sehirler = (Sehir*)malloc(sizeof(Sehir) * sayiDiziUz);
+
+	//birim sayılarını tutan değişkenler
+	int sehirSayisi, ilceSayisi, b_mahalleSayisi, nufus;
+	sehirSayisi = sayiDiziUz;
+
+	//şehirler döngüsü
+	for(int i = 0; i < sehirSayisi; i++){
+		sayiDizi[i];
+	}
+
 	return NULL;
 }
 

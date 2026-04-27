@@ -5,13 +5,13 @@
 
 struct OYUNBASLATICISERVIS
 {
-	Sehir* (*yerleskeOlustur)(struct OYUNBASLATICISERVIS*, int*);
+	Sehir* (*yerleskeOlustur)(struct OYUNBASLATICISERVIS*, int*, int);
 	void (*delete_OyunBaslaticiServis)(struct OYUNBASLATICISERVIS*);
 };
 typedef struct OYUNBASLATICISERVIS* OyunBaslaticiServis;
 
 OyunBaslaticiServis new_OyunBaslaticiServis();
-Sehir* yerleskeOlustur(const OyunBaslaticiServis this, int*);
+Sehir* yerleskeOlustur(const OyunBaslaticiServis this, int*, int);
 void delete_OyunBaslaticiServis(OyunBaslaticiServis);
 
 #endif
