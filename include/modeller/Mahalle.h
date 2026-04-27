@@ -7,6 +7,6 @@ struct MAHALLE
 {
 	Yerlesim super;
 };
-typedef struct MAHALLE* Sehir;
+typedef struct MAHALLE* Mahalle;
 
 #endif
