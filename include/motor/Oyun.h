@@ -21,6 +21,6 @@ typedef struct OYUN* Oyun;
 //public fonksiyonlar
 Oyun new_Oyun(int turSayisi, int* sayiDizi, int sayiDiziUz);
 void baslat(const Oyun);
-void delete_Oyun(const Oyun);
+void delete_Oyun(Oyun);
 
 #endif

@@ -1,6 +1,9 @@
 #include <stdlib.h>
-#include "araclar/BaslangicGirdiIslemleri.h"
 #include <stdio.h>
+#include <string.h>
+#include "araclar/BaslangicGirdiIslemleri.h"
+
+
 
 // private fonksiyonlar (header'da olmayanlar)
 
@@ -48,5 +51,18 @@ int turSayisiAl(){
     while(getchar() != '\n');
 
     return turSayisi;
+}
+
+BaslangicGirdiIslemleri new_BaslangicGirdiIslemleri(){
+    BaslangicGirdiIslemleri this;
+    this = (BaslangicGirdiIslemleri)malloc(sizeof(struct BASLANGIC_GIRDI_ISLEMLERI));
+    this->turSayisiAl = &turSayisiAl;
+    this->sayiDiziAl = &sayiDiziAl;
+    this->delete_Bgi = &delete_Bgi;
+    return this;
+}
+
+void delete_Bgi(BaslangicGirdiIslemleri this){
+    if(this != NULL) free(this);
 }
 

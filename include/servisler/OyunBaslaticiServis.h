@@ -11,7 +11,7 @@ struct OYUNBASLATICISERVIS
 typedef struct OYUNBASLATICISERVIS* OyunBaslaticiServis;
 
 OyunBaslaticiServis new_OyunBaslaticiServis();
-Sehir* yerleskeOlustur(const OyunBaslaticiServis, int*);
+Sehir* yerleskeOlustur(const OyunBaslaticiServis this, int*);
 void delete_OyunBaslaticiServis(OyunBaslaticiServis);
 
 #endif

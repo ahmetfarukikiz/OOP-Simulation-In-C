@@ -35,7 +35,7 @@ void baslat(Oyun this){
 
 
 // TODO
-void delete_Oyun(const Oyun this){
+void delete_Oyun(Oyun this){
 	if(this->sayiDizi != NULL){
 		free(this->sayiDizi);
 	}
