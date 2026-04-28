@@ -10,5 +10,7 @@ struct ILCE
 
 typedef struct ILCE* Ilce;
 
-
+void ekranaYazdir_Ilce(const Ilce); // Override
+char* toString_Ilce(const Ilce); // Override
+void yaslandir_Ilce(const Ilce); // Override
 #endif
