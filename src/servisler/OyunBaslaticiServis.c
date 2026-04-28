@@ -47,20 +47,56 @@ Sehir* yerleskeOlustur(const OyunBaslaticiServis this, int* sayiDizi, int sayiDi
 		// nufus mahallelere eşit paylaştırılabiliyor															
 		nufus = Bkh_STATIC->gercekNufusHesapla(sayiDizi[i], birler);
 
-		//TODO NEW_SEHIR eklenecek ve nüfus parametresi gönderilecek
-		//Sehir sehir = 
+		Sehir sehir = new_Sehir(nufus);
 
 		// ilçe başına mahalle sayısı
 		b_mahalleSayisi = birler/onlar;
 
+		ilceleriOlustur(sehir, ilceSayisi, b_mahalleSayisi);
+		sehirler[i] = sehir;
 	}
 
-	return NULL;
+	Bkh_STATIC->delete_Bkh(Bkh_STATIC);
+	return sehirler;
 }
 
-void ilceleriOlustur(Sehir sehir, int ilceSayisi, int mahalleSayisi){}
-void mahalleleriOlustur(Ilce ilce, int mahalleSayisi){}
-void kisileriOlustur(Mahalle mahalle){}
+void ilceleriOlustur(Sehir sehir, int ilceSayisi, int mahalleSayisi){
+	if (sehir == NULL || sehir->super == NULL || ilceSayisi == 0) return;
+
+	// eşit paylaştır bölünmeme ihtimali yok çünkü tüm sayı birlere, birler onlara bölünüyor.
+	int ilceNufusu = sehir->super->nufus / ilceSayisi; 
+														
+
+	for (int i = 0; i < ilceSayisi; i++) {
+		Ilce ilce = new_Ilce(ilceNufusu);
+		mahalleleriOlustur(ilce, mahalleSayisi);
+
+		sehir->ilceEkle(sehir, ilce);
+
+	}
+
+}
+void mahalleleriOlustur(Ilce ilce, int mahalleSayisi){
+	if (ilce == NULL || ilce->super == NULL || mahalleSayisi <= 0) return;
+
+	int mahalleNufusu = ilce->super->nufus / mahalleSayisi;
+
+	for (int i = 0; i < mahalleSayisi; i++) {
+		Mahalle mahalle = new_Mahalle(mahalleNufusu);
+		kisileriOlustur(mahalle);
+		// ilce->mahalleEkle(ilce, mahalle);
+	}
+}
+void kisileriOlustur(Mahalle mahalle){
+	if (mahalle == NULL || mahalle->super == NULL) return;
+	
+	int kisiSayisi = mahalle->super->nufus;
+
+	for (int i = 0; i < kisiSayisi; i++) {
+		Kisi kisi = new_Kisi();
+		// mahalle->kisiEkle(mahalle, kisi);
+	}
+}
 
 void delete_OyunBaslaticiServis(OyunBaslaticiServis this){
 	if(this != NULL) free(this);
