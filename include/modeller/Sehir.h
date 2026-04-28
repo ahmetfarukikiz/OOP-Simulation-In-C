@@ -9,10 +9,11 @@ struct SEHIR
 {
 	Yerlesim super;
 	Ilce* ilceler;
+	int ilceSayisi;
+    int ilceKapasitesi;
 
 	Ilce* (*getIlceler)(struct SEHIR*);
 	void (*ilceEkle)(struct SEHIR*, Ilce);
-	void (*ilceSil)(struct SEHIR*, Ilce);
 	Ilce (*popIlce)(struct SEHIR*);
 	void (*nufusArttir)(struct SEHIR*);
 	void (*nufusGuncelle)(struct SEHIR*);
@@ -26,7 +27,6 @@ typedef struct SEHIR* Sehir;
 Sehir new_Sehir(int);
 Ilce* getIlceler(const Sehir);
 void ilceEkle(const Sehir, Ilce);
-void ilceSil(const Sehir, Ilce);
 Ilce popIlce(const Sehir);
 void nufusArttir(const Sehir);
 void nufusGuncelle(const Sehir);
