@@ -5,18 +5,18 @@ struct KISI
 {
 	char *ad, *soyad;
 	int id, yas;
-	char* (*toString)(const struct KISI*); 
-	void (*ekranaYazdir)(const struct KISI*);
-	void (*yaslandir)(const struct KISI*);
-	void (*toString_Kisi)(struct KISI*);
+	void (*yaslandir_Kisi)(struct KISI*);
+	void (*ekranaYazdir_Kisi)( struct KISI*);
+	char* (*toString_Kisi)(struct KISI*);
+	void (*delete_Kisi)(struct KISI*);
 };
 typedef struct KISI* Kisi;
 
 Kisi new_Kisi();
+void yaslandir_Kisi(Kisi);
 void ekranaYazdir_Kisi(const Kisi);
-void yaslandir_Kisi(const Kisi);
 char* toString_Kisi(const Kisi);
-void delete_Kisi(const Kisi);
+void delete_Kisi(Kisi);
 
 
 #endif

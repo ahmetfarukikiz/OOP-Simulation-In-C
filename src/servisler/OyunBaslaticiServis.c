@@ -84,7 +84,7 @@ void mahalleleriOlustur(Ilce ilce, int mahalleSayisi){
 	for (int i = 0; i < mahalleSayisi; i++) {
 		Mahalle mahalle = new_Mahalle(mahalleNufusu);
 		kisileriOlustur(mahalle);
-		// ilce->mahalleEkle(ilce, mahalle);
+		ilce->mahalleEkle(ilce, mahalle);
 	}
 }
 void kisileriOlustur(Mahalle mahalle){
@@ -94,7 +94,7 @@ void kisileriOlustur(Mahalle mahalle){
 
 	for (int i = 0; i < kisiSayisi; i++) {
 		Kisi kisi = new_Kisi();
-		// mahalle->kisiEkle(mahalle, kisi);
+		mahalle->kisiEkle(mahalle, kisi);
 	}
 }
 

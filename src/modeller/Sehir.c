@@ -1,4 +1,5 @@
 #include "modeller/Sehir.h"
+#include "modeller/Ilce.h"	
 #include "araclar/SahteVeriUretici.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -18,7 +19,7 @@ int getNufusArtisOrani(Sehir this) {
 
 Sehir new_Sehir(int nufus){
 
-	SahteVeriUretici Svu_STATIC = new_SahteVeriUretici();
+	SahteVeriUretici Svu_STATIC = get_SvuInstance();
 
 	Sehir this;
 	this = (Sehir)malloc(sizeof(struct SEHIR));
@@ -37,18 +38,16 @@ Sehir new_Sehir(int nufus){
 	this->getIlceler = &getIlceler;
 	this->ilceEkle = &ilceEkle;
 	this->popIlce = &popIlce;
-	this->nufusArttir = &nufusArttir;
-	this->nufusGuncelle = &nufusGuncelle;
+	this->nufusArttir_Sehir = &nufusArttir_Sehir;
+	this->nufusGuncelle_Sehir = &nufusGuncelle_Sehir;
 	this->dortBasasamakli = &dortBasasamakli;
-	this->bolun = &bolun;
+	this->bolun_Sehir = &bolun_Sehir;
 	this->delete_Sehir = &delete_Sehir;
 
 	// Override edilen metotlar
 	this->super->toString = &toString_Sehir; 
 	this->super->ekranaYazdir = &ekranaYazdir_Sehir; 
 	this->super->yaslandir = &yaslandir_Sehir; 
-
-	Svu_STATIC->delete_Svu(Svu_STATIC);
 
 	return this;
 }
@@ -85,10 +84,10 @@ Ilce popIlce(const Sehir this){
 void yaslandir_Sehir(const Sehir this){
 
 }
-void nufusArttir(const Sehir this){
+void nufusArttir_Sehir(const Sehir this){
 
 }
-void nufusGuncelle(const Sehir this){
+void nufusGuncelle_Sehir(const Sehir this){
 
 }
 void ekranaYazdir_Sehir(const Sehir this){
@@ -100,7 +99,7 @@ char* toString_Sehir(const Sehir this){ // Override
 boolean dortBasasamakli(const Sehir this){
 	return (this->super->nufus >= 1000);
 }
-Sehir bolun(const Sehir this){
+Sehir bolun_Sehir(const Sehir this){
 
 }
 void delete_Sehir(Sehir this){

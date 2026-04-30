@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include "araclar/BaslangicGirdiIslemleri.h"
+#include "araclar/SahteVeriUretici.h"
 #include "motor/Oyun.h"
 
 int main() {
+	// singleton yapı ile static sınıf benzetimi, program başında ilk kez oluşur sonra hep aynı örneği döndürür.
+	SahteVeriUretici svu = get_SvuInstance(); 
+
 	int turSayisi, sayiDiziUz, *sayiDizi;
    	sayiDiziUz = 0; turSayisi = 0;
 	sayiDizi = NULL;	
@@ -18,6 +22,6 @@ int main() {
 	oyun->baslat(oyun);
 	oyun->delete_Oyun(oyun);
 
-
+	svu->delete_Svu(); //Bellekte 1 adet oluşturulan SahteVeriUretici örneğini temizler.
 	return 0;
 }

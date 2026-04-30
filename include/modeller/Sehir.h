@@ -15,10 +15,10 @@ struct SEHIR
 	Ilce* (*getIlceler)(struct SEHIR*);
 	void (*ilceEkle)(struct SEHIR*, Ilce);
 	Ilce (*popIlce)(struct SEHIR*);
-	void (*nufusArttir)(struct SEHIR*);
-	void (*nufusGuncelle)(struct SEHIR*);
+	void (*nufusArttir_Sehir)(struct SEHIR*);
+	void (*nufusGuncelle_Sehir)(struct SEHIR*);
 	boolean (*dortBasasamakli)(struct SEHIR*);
-	struct SEHIR* (*bolun)(struct SEHIR*);
+	struct SEHIR* (*bolun_Sehir)(struct SEHIR*);
 	void (*delete_Sehir)(struct SEHIR*);
 
 };
@@ -28,11 +28,11 @@ Sehir new_Sehir(int);
 Ilce* getIlceler(const Sehir);
 void ilceEkle(const Sehir, Ilce);
 Ilce popIlce(const Sehir);
-void nufusArttir(const Sehir);
-void nufusGuncelle(const Sehir);
+void nufusArttir_Sehir(const Sehir);
+void nufusGuncelle_Sehir(const Sehir);
 boolean dortBasasamakli(const Sehir);
-Sehir bolun(const Sehir);
-void delete_Sehir(const Sehir);
+Sehir bolun_Sehir(const Sehir);
+void delete_Sehir(Sehir);
 
 void ekranaYazdir_Sehir(const Sehir); // Override
 char* toString_Sehir(const Sehir); // Override
