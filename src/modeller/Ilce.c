@@ -70,8 +70,18 @@ Mahalle popMahalle(const Ilce this){
     this->mahalleSayisi--;
     return this->mahalleler[this->mahalleSayisi];
 }
-void nufusArttir_Ilce(const Ilce this){}
-void nufusGuncelle_Ilce(const Ilce this){}
+int nufusArttir_Ilce(const Ilce this, int artisOrani){
+    int yeniNufus = 0;
+
+    // her bir mahalle kendi nüfusunu hesaplar ve döndürür
+    for (int i = 0; i < this->mahalleSayisi; i++) {
+		yeniNufus += this->mahalleler[i]->nufusArttir_Mahalle(this->mahalleler[i], artisOrani);
+	}
+
+	this->super->nufus = yeniNufus;
+    return this->super->nufus;
+}
+int nufusGuncelle_Ilce(const Ilce this){}
 Ilce bolun_Ilce(const Ilce this){}
 
 

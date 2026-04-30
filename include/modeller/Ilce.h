@@ -13,8 +13,8 @@ struct ILCE
 	Mahalle* (*getMahalleler)(struct ILCE*);
 	void (*mahalleEkle)(struct ILCE*, Mahalle);
 	Mahalle (*popMahalle)(struct ILCE*);
-	void (*nufusArttir_Ilce)(struct ILCE*);
-	void (*nufusGuncelle_Ilce)(struct ILCE*);
+	int (*nufusArttir_Ilce)(struct ILCE*, int);
+	int (*nufusGuncelle_Ilce)(struct ILCE*);
 	struct ILCE* (*bolun_Ilce)(struct ILCE*);
 	void (*delete_Ilce)(struct ILCE*);
 };
@@ -25,8 +25,8 @@ Ilce new_Ilce(int nufus);
 Mahalle* getMahalleler(const Ilce);
 void mahalleEkle(const Ilce, Mahalle);
 Mahalle popMahalle(const Ilce);
-void nufusArttir_Ilce(const Ilce);
-void nufusGuncelle_Ilce(const Ilce);
+int nufusArttir_Ilce(const Ilce, int);
+int nufusGuncelle_Ilce(const Ilce);
 struct ILCE* bolun_Ilce(const Ilce);
 void delete_Ilce(const Ilce this);
 

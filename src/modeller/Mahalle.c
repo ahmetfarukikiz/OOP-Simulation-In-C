@@ -65,8 +65,31 @@ Kisi popKisi(const Mahalle this){
     this->kisiSayisi--;
     return this->kisiler[this->kisiSayisi];
 }
-void nufusArttir_Mahalle(const Mahalle this){}
-void nufusGuncelle_Mahalle(const Mahalle this){}
+
+int nufusArttir_Mahalle(const Mahalle this, int artisOrani){
+   if (this == NULL) return 0;
+
+    int eklenecekKisiSayisi, yeniNufus;
+    int mevcutNufus = this->super->nufus;
+
+    if (artisOrani == 0) {
+        eklenecekKisiSayisi = 1;
+        yeniNufus = mevcutNufus + 1;
+    } else {
+        int eskiNufus = mevcutNufus;
+        yeniNufus = artisOrani * mevcutNufus;
+        eklenecekKisiSayisi = yeniNufus - eskiNufus;
+    }
+
+
+    for (int i = 0; i < eklenecekKisiSayisi; i++) {
+        this->kisiEkle(this, new_Kisi());
+    }
+
+    this->super->nufus = yeniNufus;
+    return this->super->nufus;
+}
+int nufusGuncelle_Mahalle(const Mahalle this){}
 Mahalle bolun_Mahalle(const Mahalle this){}
 
 

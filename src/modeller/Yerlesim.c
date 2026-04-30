@@ -4,9 +4,8 @@
 
 Yerlesim new_Yerlesim(char* ad, int nufus){
 	Yerlesim this = (Yerlesim)malloc(sizeof(struct YERLESIM));
-	// TODO ad ataması.
-	// this->ad = (char*)malloc((strlen(ad) + 1) * sizeof(char));
-    // strcpy(this->ad, ad);
+	this->ad = (char*)malloc((strlen(ad) + 1) * sizeof(char));
+    strcpy(this->ad, ad);
 	this->nufus = nufus;
 	this->delete_Yerlesim = &delete_Yerlesim;
 	return this;

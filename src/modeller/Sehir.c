@@ -87,7 +87,15 @@ void yaslandir_Sehir(Sehir this){
 	}
 }
 void nufusArttir_Sehir(const Sehir this){
+	int toplamNufus = 0;
+	int artisOrani = getNufusArtisOrani(this);
 
+	// her bir ilçe kendi nüfusunu hesaplar ve döndürür
+	for (int i = 0; i < this->ilceSayisi; i++) {
+			toplamNufus += this->ilceler[i]->nufusArttir_Ilce(this->ilceler[i], artisOrani);
+	}
+
+	this->super->nufus = toplamNufus; // yeni nüfus
 }
 void nufusGuncelle_Sehir(const Sehir this){
 
