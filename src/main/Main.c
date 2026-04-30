@@ -20,8 +20,15 @@ int main() {
 
 	Oyun oyun = new_Oyun(turSayisi, sayiDizi, sayiDiziUz);
 	oyun->baslat(oyun);
-	oyun->delete_Oyun(oyun);
 
+	printf("\nProgramdan cikmak icin ENTER tusuna basiniz...\n");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) { }
+
+	oyun->delete_Oyun(oyun);
 	svu->delete_Svu(); //Bellekte 1 adet oluşturulan SahteVeriUretici örneğini temizler.
+
+	printf("Simulasyon Sonlandi");
+	
 	return 0;
 }

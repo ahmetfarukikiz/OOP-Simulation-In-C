@@ -1,22 +1,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "motor/Oyun.h"
-#include "servisler/OyunBaslaticiServis.h"
 
 // private fonksiyonlar
-void OyunSonuSatirSutunSor(const Oyun this){
+void oyunSonuSatirSutunSor(const Oyun this){
 
 }
 
 // public fonksiyonlar
-Oyun new_Oyun(int turSayisi, int* sayiDizi, int SayiDiziUz){
+Oyun new_Oyun(int turSayisi, int* sayiDizi, int sayiDiziUz){
 	Oyun this;
 	this = (Oyun) malloc(sizeof(struct OYUN));
 	this->toplamTurSayisi = turSayisi;
 	this->sayiDizi = sayiDizi;
-	this->sayiDiziUz = SayiDiziUz;
+	this->sayiDiziUz = sayiDiziUz;
 	this->sehirler = NULL; //OyunBaslaticiServisten alacak.
+	this->sehirSayisi = sayiDiziUz;
 	this->oyunBaslaticiServis = new_OyunBaslaticiServis();
+	this->yazdirici = new_YazdirServis();
 	this->baslat = &baslat;
 	this->delete_Oyun = &delete_Oyun;
 	return this;
@@ -26,11 +27,51 @@ void baslat(Oyun this){
 	this->sehirler = this->oyunBaslaticiServis->
 	yerleskeOlustur(this->oyunBaslaticiServis, this->sayiDizi, this->sayiDiziUz);
 	
-	// test
-	for(int i = 0; i < this->sayiDiziUz; i++){
-		printf("%d\n",this->sayiDizi[i]);
-	}
-	
+	printf("Baslangic Durumu:\n");
+	this->yazdirici->turYazdir(this->sehirler, this->sehirSayisi);
+
+	// ana loop (TUR DÖNGÜSÜ)
+		for (int tur = 1; tur <= this->toplamTurSayisi; tur++) {
+		// her tur bölünmeyle oluşacak şehirleri tutacak geçici liste
+        Sehir* yeniSehirler = (Sehir*)malloc(sizeof(Sehir) * this->sehirSayisi);
+        int yeniSehirSayisi = 0;
+
+        // tur işlemleri
+        for (int i = 0; i < this->sehirSayisi; i++) {
+            Sehir sehir = this->sehirler[i];
+            
+            sehir->nufusArttir_Sehir(sehir);
+            sehir->super->yaslandir(sehir->super);
+
+            // şehrin tur işlemlerinden sonra dört basamaklıysa böl
+            if (sehir->dortBasasamakli(sehir)) {
+                Sehir yeniSehir = sehir->bolun_Sehir(sehir);
+                yeniSehirler[yeniSehirSayisi] = yeniSehir;
+                yeniSehirSayisi++;
+            }
+        }
+
+        // tur bittikten sonra bölünmeyle gelen şehirleri asıl listeye ekle
+        if (yeniSehirSayisi > 0) {
+            this->sehirler = (Sehir*)realloc(this->sehirler, sizeof(Sehir) * (this->sehirSayisi + yeniSehirSayisi));
+            
+            for (int i = 0; i < yeniSehirSayisi; i++) {
+                this->sehirler[this->sehirSayisi + i] = yeniSehirler[i];
+            }
+            this->sehirSayisi += yeniSehirSayisi;
+        }
+        free(yeniSehirler);
+
+        printf("%d.tur sonu:\n", tur);
+        this->yazdirici->turYazdir(this->sehirler, this->sehirSayisi);
+        this->yazdirici->ekraniTemizle();
+			
+		}
+
+		printf("Oyun Sonu:\n");
+		this->yazdirici->turYazdir(this->sehirler, this->sehirSayisi);
+
+    	oyunSonuSatirSutunSor(this);
 }
 
 
@@ -40,10 +81,16 @@ void delete_Oyun(Oyun this){
 		free(this->sayiDizi);
 	}
 	if(this->sehirler != NULL){
+		for(int i = 0; i < this->sehirSayisi; i++){
+			this->sehirler[i]->delete_Sehir(this->sehirler[i]);
+		}
 		free(this->sehirler);
 	}
 	if(this->oyunBaslaticiServis != NULL){
-		free(this->oyunBaslaticiServis);
+		this->oyunBaslaticiServis->delete_OyunBaslaticiServis(this->oyunBaslaticiServis);
+	}
+	if(this->yazdirici != NULL){
+		this->yazdirici->delete_YazdirServis(this->yazdirici);
 	}
 	free(this);
 }

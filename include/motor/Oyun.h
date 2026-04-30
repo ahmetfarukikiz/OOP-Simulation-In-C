@@ -3,6 +3,7 @@
 
 #include "modeller/Sehir.h"
 #include "servisler/OyunBaslaticiServis.h"
+#include "servisler/YazdirServis.h"
 
 struct OYUN
 {
@@ -10,7 +11,9 @@ struct OYUN
 	int sayiDiziUz;
 	int toplamTurSayisi;
 	Sehir* sehirler;
+	int sehirSayisi;
 	OyunBaslaticiServis oyunBaslaticiServis;
+	YazdirServis yazdirici;
 
 	void (*baslat)(struct OYUN*);
 	void (*delete_Oyun)(struct OYUN*);
@@ -20,7 +23,7 @@ typedef struct OYUN* Oyun;
 
 //public fonksiyonlar
 Oyun new_Oyun(int turSayisi, int* sayiDizi, int sayiDiziUz);
-void baslat(const Oyun);
+void baslat(Oyun);
 void delete_Oyun(Oyun);
 
 #endif
