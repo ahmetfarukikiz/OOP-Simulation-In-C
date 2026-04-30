@@ -3,6 +3,7 @@
 #include "araclar/SahteVeriUretici.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 Mahalle new_Mahalle(int nufus){
 	SahteVeriUretici Svu_STATIC = get_SvuInstance();
@@ -107,13 +108,35 @@ Mahalle bolun_Mahalle(const Mahalle this){
 	return yeniMahalle;       
 }
 
-
+ // Override
 void ekranaYazdir_Mahalle(const Mahalle this){
+    if (this == NULL) return;
 
+    char* mahalleString = this->super->toString(this);
+    
+    if (mahalleString != NULL) {
+        printf("%s\n", mahalleString); 
+        free(mahalleString); //heapte oluşturulan stringi serbest bırak
+    }
+    printf("Kisiler:\n");
+	for(int i = 0; i < this->kisiSayisi; i++){
+		this->kisiler[i]->ekranaYazdir_Kisi(this->kisiler[i]);
+	}
 }
+ // Override
 char* toString_Mahalle(const Mahalle this){
+    if (this == NULL) return NULL;
 
-} // Override
+    char tampon[50];
+
+    snprintf(tampon, sizeof(tampon), "Mahalle: %s-Nufus: %d", this->super->ad, this->super->nufus);
+
+    char* sonuc = (char*)malloc((strlen(tampon) + 1) * sizeof(char));
+    strcpy(sonuc, tampon);
+
+    return sonuc; // Çağıran kişi bunu free ile serbest bırakmalı.
+} 
+// Override
 void yaslandir_Mahalle(const Mahalle this){
     for(int i = 0; i < this->kisiSayisi; i++){
 		this->kisiler[i]->yaslandir_Kisi(this->kisiler[i]);

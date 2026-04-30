@@ -38,9 +38,11 @@ void turYazdir(Sehir* sehirler, int sehirSayisi) {
     printf("\n"); 
 }
 
-void detayYazdir(Sehir* sehirler, int sehirlerUz, int index){
-
+//indexteki şehirde hiyerarşik olarak yukardan aşağı ekrana yazdırır.
+void detayYazdir(Sehir* sehirler, int index){
+    sehirler[index]->super->ekranaYazdir(sehirler[index]);
 }
+
 void ekraniTemizle(){
 	// İşletim sistemi Windows ise bu kısmı derle
     #ifdef _WIN32

@@ -3,6 +3,7 @@
 #include "araclar/SahteVeriUretici.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 
 //private fonksiyonlar (header'da olmayanlar)
@@ -81,6 +82,8 @@ Ilce popIlce(const Sehir this){
     this->ilceSayisi--;
     return this->ilceler[this->ilceSayisi];
 }
+
+ // Override
 void yaslandir_Sehir(Sehir this){
 	for(int i = 0; i < this->ilceSayisi; i++){
 		this->ilceler[i]->super->yaslandir(this->ilceler[i]);
@@ -112,11 +115,35 @@ void nufusGuncelle_Sehir(const Sehir this){
 	
 	this->super->nufus = toplamNufus; // yeni nüfus
 }
+
+ // Override
 void ekranaYazdir_Sehir(const Sehir this){
+	if (this == NULL) return;
 
+    char* sehirString = this->super->toString(this);
+    
+    if (sehirString != NULL) {
+        printf("%s\n", sehirString); 
+        free(sehirString); //heapte oluşturulan stringi serbest bırak
+    }
+
+	for(int i = 0; i < this->ilceSayisi; i++){
+		this->ilceler[i]->super->ekranaYazdir(this->ilceler[i]);
+	}
 }
-char* toString_Sehir(const Sehir this){ // Override
 
+ // Override
+char* toString_Sehir(const Sehir this){
+	 if (this == NULL) return NULL;
+
+    char tampon[50];
+
+    snprintf(tampon, sizeof(tampon), "Sehir: %s-Nufus: %d", this->super->ad, this->super->nufus);
+
+    char* sonuc = (char*)malloc((strlen(tampon) + 1) * sizeof(char));
+    strcpy(sonuc, tampon);
+
+    return sonuc; // Çağıran kişi bunu free ile serbest bırakmalı.
 } 
 boolean dortBasamakli(const Sehir this){
 	return (this->super->nufus >= 1000);

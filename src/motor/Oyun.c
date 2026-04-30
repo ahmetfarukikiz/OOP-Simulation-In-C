@@ -4,7 +4,17 @@
 
 // private fonksiyonlar
 void oyunSonuSatirSutunSor(const Oyun this){
+	int satir, sutun, index;
 
+    printf("Satir Girin (0'dan baslar):\n");
+    scanf("%d", &satir);
+
+    printf("Sutun Girin (0'dan baslar):\n");
+    scanf("%d", &sutun);
+
+    index = satir * 5 + sutun; // her satirda 5 eleman var
+
+    this->yazdirici->detayYazdir(this->sehirler, index);
 }
 
 // public fonksiyonlar

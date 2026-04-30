@@ -3,6 +3,8 @@
 #include "araclar/SahteVeriUretici.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+
 
 
 Ilce new_Ilce(int nufus){
@@ -114,8 +116,32 @@ Ilce bolun_Ilce(const Ilce this){
 
 
 
-void ekranaYazdir_Ilce(const Ilce this){}
-char* toString_Ilce(const Ilce this){}
+void ekranaYazdir_Ilce(const Ilce this){
+    if (this == NULL) return;
+
+    char* ilceString = this->super->toString(this);
+    
+    if (ilceString != NULL) {
+        printf("%s\n", ilceString); 
+        free(ilceString); //heapte oluşturulan stringi serbest bırak
+    }
+
+	for(int i = 0; i < this->mahalleSayisi; i++){
+		this->mahalleler[i]->super->ekranaYazdir(this->mahalleler[i]);
+	}
+}
+char* toString_Ilce(const Ilce this){
+     if (this == NULL) return NULL;
+
+    char tampon[50];
+
+    snprintf(tampon, sizeof(tampon), "Ilce: %s-Nufus: %d", this->super->ad, this->super->nufus);
+
+    char* sonuc = (char*)malloc((strlen(tampon) + 1) * sizeof(char));
+    strcpy(sonuc, tampon);
+
+    return sonuc; // Çağıran kişi bunu free ile serbest bırakmalı.
+}
 void yaslandir_Ilce(const Ilce this){
     for(int i = 0; i < this->mahalleSayisi; i++){
 		this->mahalleler[i]->super->yaslandir(this->mahalleler[i]);

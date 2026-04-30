@@ -6,7 +6,7 @@
 struct YAZDIR_SERVIS
 {
 	void (*turYazdir)(Sehir*, int);
-	void (*detayYazdir)(Sehir*, int, int); 
+	void (*detayYazdir)(Sehir*, int); 
 	void (*ekraniTemizle)();
 	void (*delete_YazdirServis)(struct YAZDIR_SERVIS*);
 };
@@ -15,7 +15,7 @@ typedef struct YAZDIR_SERVIS* YazdirServis;
 
 YazdirServis new_YazdirServis();
 void turYazdir(Sehir*, int);
-void detayYazdir(Sehir*, int, int);
+void detayYazdir(Sehir*, int);
 void ekraniTemizle();
 void delete_YazdirServis(YazdirServis);
 

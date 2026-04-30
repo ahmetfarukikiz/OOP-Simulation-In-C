@@ -24,6 +24,7 @@ int main() {
 	printf("\nProgramdan cikmak icin ENTER tusuna basiniz...\n");
     int c;
     while ((c = getchar()) != '\n' && c != EOF) { }
+	getchar();
 
 	oyun->delete_Oyun(oyun);
 	svu->delete_Svu(); //Bellekte 1 adet oluşturulan SahteVeriUretici örneğini temizler.
