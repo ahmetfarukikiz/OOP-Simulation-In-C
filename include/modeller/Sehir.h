@@ -32,11 +32,11 @@ void nufusArttir_Sehir(const Sehir);
 void nufusGuncelle_Sehir(const Sehir);
 boolean dortBasamakli(const Sehir);
 Sehir bolun_Sehir(const Sehir);
-void delete_Sehir(Sehir);
+void delete_Sehir(const Sehir);
 
 void ekranaYazdir_Sehir(const Sehir); // Override
 char* toString_Sehir(const Sehir); // Override
-void yaslandir_Sehir(Sehir); // Override
+void yaslandir_Sehir(const Sehir); // Override
 
 
 #endif

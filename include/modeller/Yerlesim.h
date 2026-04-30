@@ -14,6 +14,6 @@ struct YERLESIM {
 typedef struct YERLESIM* Yerlesim;
 
 Yerlesim new_Yerlesim(char*, int);
-void delete_Yerlesim(Yerlesim);
+void delete_Yerlesim(const Yerlesim);
 
 #endif

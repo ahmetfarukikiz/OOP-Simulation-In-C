@@ -30,7 +30,7 @@ void ekranaYazdir_Kisi(const Kisi this){
         free(kisiString); //heapte oluşturulan stringi serbest bırak
     }
 }
-void yaslandir_Kisi(Kisi this){
+void yaslandir_Kisi(const Kisi this){
 	this->yas++;
 }
 char* toString_Kisi(const Kisi this){
@@ -45,7 +45,7 @@ char* toString_Kisi(const Kisi this){
 
     return sonuc; // Çağıran kişi bunu free ile serbest bırakmalı.
 }
-void delete_Kisi(Kisi this){
+void delete_Kisi(const Kisi this){
 	if (this == NULL) return;
     
     if (this->ad != NULL) free(this->ad);

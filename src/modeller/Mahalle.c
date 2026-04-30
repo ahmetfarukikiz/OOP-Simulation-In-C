@@ -82,7 +82,7 @@ void yaslandir_Mahalle(const Mahalle this){
 	}
 }
 
-void delete_Mahalle(Mahalle this){
+void delete_Mahalle(const Mahalle this){
 	if (this == NULL) return;
 
     // Kisileri tek tek sil

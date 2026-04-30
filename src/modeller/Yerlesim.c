@@ -11,7 +11,7 @@ Yerlesim new_Yerlesim(char* ad, int nufus){
 	this->delete_Yerlesim = &delete_Yerlesim;
 	return this;
 }
-void delete_Yerlesim(Yerlesim this){
+void delete_Yerlesim(const Yerlesim this){
 	if(this->ad != NULL) free(this->ad);
 	if(this != NULL) free(this);
 }

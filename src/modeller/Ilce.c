@@ -38,11 +38,11 @@ Ilce new_Ilce(int nufus){
 
 	
 }
-Mahalle* getMahalleler(Ilce this){
+Mahalle* getMahalleler(const Ilce this){
 	if (this == NULL) return NULL;
     return this->mahalleler;
 }
-void mahalleEkle(Ilce this, Mahalle mahalle){
+void mahalleEkle(const Ilce this, Mahalle mahalle){
 	if (this == NULL || mahalle == NULL) return;
 
     // Kapasite doldu mu kontrolü
@@ -64,27 +64,27 @@ void mahalleEkle(Ilce this, Mahalle mahalle){
 }
 
 // Bu fonksiyon mahalleyi silmez, referansı döndürüp dizideki sayıyı azaltır.
-Mahalle popMahalle(Ilce this){
+Mahalle popMahalle(const Ilce this){
 	if (this == NULL || this->mahalleSayisi == 0) return NULL;
     
     this->mahalleSayisi--;
     return this->mahalleler[this->mahalleSayisi];
 }
-void nufusArttir_Ilce(Ilce this){}
-void nufusGuncelle_Ilce(Ilce this){}
-Ilce bolun_Ilce(Ilce this){}
+void nufusArttir_Ilce(const Ilce this){}
+void nufusGuncelle_Ilce(const Ilce this){}
+Ilce bolun_Ilce(const Ilce this){}
 
 
 
 void ekranaYazdir_Ilce(const Ilce this){}
 char* toString_Ilce(const Ilce this){}
-void yaslandir_Ilce(Ilce this){
+void yaslandir_Ilce(const Ilce this){
     for(int i = 0; i < this->mahalleSayisi; i++){
 		this->mahalleler[i]->super->yaslandir(this->mahalleler[i]);
 	}
 }
 
-void delete_Ilce(Ilce this){
+void delete_Ilce(const Ilce this){
 	if (this == NULL) return;
 
     // Mahalle yapılarını tek tek sil

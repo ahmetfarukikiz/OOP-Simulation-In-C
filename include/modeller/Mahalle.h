@@ -27,9 +27,9 @@ Kisi popKisi(const Mahalle);
 void nufusArttir_Mahalle(const Mahalle);
 void nufusGuncelle_Mahalle(const Mahalle);
 Mahalle bolun_Mahalle(const Mahalle);
-void delete_Mahalle(Mahalle);
+void delete_Mahalle(const Mahalle);
 
 void ekranaYazdir_Mahalle(const Mahalle); // Override
 char* toString_Mahalle(const Mahalle); // Override
-void yaslandir_Mahalle(Mahalle); // Override
+void yaslandir_Mahalle(const Mahalle); // Override
 #endif

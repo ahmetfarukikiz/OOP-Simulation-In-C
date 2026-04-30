@@ -22,15 +22,15 @@ struct ILCE
 typedef struct ILCE* Ilce;
 
 Ilce new_Ilce(int nufus);
-Mahalle* getMahalleler(Ilce);
-void mahalleEkle(Ilce, Mahalle);
-Mahalle popMahalle(Ilce);
-void nufusArttir_Ilce(Ilce);
-void nufusGuncelle_Ilce(Ilce);
-struct ILCE* bolun_Ilce(Ilce);
-void delete_Ilce(Ilce this);
+Mahalle* getMahalleler(const Ilce);
+void mahalleEkle(const Ilce, Mahalle);
+Mahalle popMahalle(const Ilce);
+void nufusArttir_Ilce(const Ilce);
+void nufusGuncelle_Ilce(const Ilce);
+struct ILCE* bolun_Ilce(const Ilce);
+void delete_Ilce(const Ilce this);
 
 void ekranaYazdir_Ilce(const Ilce); // Override
 char* toString_Ilce(const Ilce); // Override
-void yaslandir_Ilce(Ilce); // Override
+void yaslandir_Ilce(const Ilce); // Override
 #endif

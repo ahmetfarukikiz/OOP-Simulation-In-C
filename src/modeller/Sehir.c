@@ -104,7 +104,7 @@ boolean dortBasamakli(const Sehir this){
 Sehir bolun_Sehir(const Sehir this){
 
 }
-void delete_Sehir(Sehir this){
+void delete_Sehir(const Sehir this){
 	// ilçe yapılarını tek tek sil
 	while (this->ilceSayisi > 0) {
         Ilce silinecekIlce = this->popIlce(this);

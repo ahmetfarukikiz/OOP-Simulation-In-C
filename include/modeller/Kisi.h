@@ -13,10 +13,10 @@ struct KISI
 typedef struct KISI* Kisi;
 
 Kisi new_Kisi();
-void yaslandir_Kisi(Kisi);
+void yaslandir_Kisi(const Kisi);
 void ekranaYazdir_Kisi(const Kisi);
 char* toString_Kisi(const Kisi);
-void delete_Kisi(Kisi);
+void delete_Kisi(const Kisi);
 
 
 #endif
