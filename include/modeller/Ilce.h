@@ -32,5 +32,5 @@ void delete_Ilce(Ilce this);
 
 void ekranaYazdir_Ilce(const Ilce); // Override
 char* toString_Ilce(const Ilce); // Override
-void yaslandir_Ilce(const Ilce); // Override
+void yaslandir_Ilce(Ilce); // Override
 #endif

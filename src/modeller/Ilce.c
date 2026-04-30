@@ -74,6 +74,16 @@ void nufusArttir_Ilce(Ilce this){}
 void nufusGuncelle_Ilce(Ilce this){}
 Ilce bolun_Ilce(Ilce this){}
 
+
+
+void ekranaYazdir_Ilce(const Ilce this){}
+char* toString_Ilce(const Ilce this){}
+void yaslandir_Ilce(Ilce this){
+    for(int i = 0; i < this->mahalleSayisi; i++){
+		this->mahalleler[i]->super->yaslandir(this->mahalleler[i]);
+	}
+}
+
 void delete_Ilce(Ilce this){
 	if (this == NULL) return;
 
@@ -98,7 +108,3 @@ void delete_Ilce(Ilce this){
     // Ilce yapısını sil
     free(this);
 }
-
-void ekranaYazdir_Ilce(const Ilce this){}
-char* toString_Ilce(const Ilce this){}
-void yaslandir_Ilce(const Ilce this){}

@@ -31,5 +31,5 @@ void delete_Mahalle(Mahalle);
 
 void ekranaYazdir_Mahalle(const Mahalle); // Override
 char* toString_Mahalle(const Mahalle); // Override
-void yaslandir_Mahalle(const Mahalle); // Override
+void yaslandir_Mahalle(Mahalle); // Override
 #endif

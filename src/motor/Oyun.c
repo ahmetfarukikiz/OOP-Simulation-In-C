@@ -41,10 +41,10 @@ void baslat(Oyun this){
             Sehir sehir = this->sehirler[i];
             
             sehir->nufusArttir_Sehir(sehir);
-            sehir->super->yaslandir(sehir->super);
+            sehir->super->yaslandir(sehir);
 
             // şehrin tur işlemlerinden sonra dört basamaklıysa böl
-            if (sehir->dortBasasamakli(sehir)) {
+            if (sehir->dortBasamakli(sehir)) {
                 Sehir yeniSehir = sehir->bolun_Sehir(sehir);
                 yeniSehirler[yeniSehirSayisi] = yeniSehir;
                 yeniSehirSayisi++;

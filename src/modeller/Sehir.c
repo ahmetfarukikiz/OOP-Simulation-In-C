@@ -40,7 +40,7 @@ Sehir new_Sehir(int nufus){
 	this->popIlce = &popIlce;
 	this->nufusArttir_Sehir = &nufusArttir_Sehir;
 	this->nufusGuncelle_Sehir = &nufusGuncelle_Sehir;
-	this->dortBasasamakli = &dortBasasamakli;
+	this->dortBasamakli = &dortBasamakli;
 	this->bolun_Sehir = &bolun_Sehir;
 	this->delete_Sehir = &delete_Sehir;
 
@@ -81,8 +81,10 @@ Ilce popIlce(const Sehir this){
     this->ilceSayisi--;
     return this->ilceler[this->ilceSayisi];
 }
-void yaslandir_Sehir(const Sehir this){
-
+void yaslandir_Sehir(Sehir this){
+	for(int i = 0; i < this->ilceSayisi; i++){
+		this->ilceler[i]->super->yaslandir(this->ilceler[i]);
+	}
 }
 void nufusArttir_Sehir(const Sehir this){
 
@@ -96,7 +98,7 @@ void ekranaYazdir_Sehir(const Sehir this){
 char* toString_Sehir(const Sehir this){ // Override
 
 } 
-boolean dortBasasamakli(const Sehir this){
+boolean dortBasamakli(const Sehir this){
 	return (this->super->nufus >= 1000);
 }
 Sehir bolun_Sehir(const Sehir this){

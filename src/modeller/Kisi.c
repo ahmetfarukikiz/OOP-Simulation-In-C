@@ -45,4 +45,11 @@ char* toString_Kisi(const Kisi this){
 
     return sonuc; // Çağıran kişi bunu free ile serbest bırakmalı.
 }
-void delete_Kisi(Kisi this){}
+void delete_Kisi(Kisi this){
+	if (this == NULL) return;
+    
+    if (this->ad != NULL) free(this->ad);
+    if (this->soyad != NULL) free(this->soyad);
+    
+    free(this);
+}

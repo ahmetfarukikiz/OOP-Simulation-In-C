@@ -30,7 +30,7 @@ SahteVeriUretici get_SvuInstance() {
 
 char* getKisiAd(){ return "Ahmet"; }
 char* getKisiSoyad(){ return "İkiz"; }
-char* getKisiYas(){ return "30"; }
+int getKisiYas(){ return 5; }
 char* getSehirAd(){ return "Ankara"; }
 char* getIlceAd(){ return "Çankaya"; }
 char* getMahalleAd(){ return "Kızılay"; }	

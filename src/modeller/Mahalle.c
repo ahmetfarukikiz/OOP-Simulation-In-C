@@ -68,6 +68,20 @@ Kisi popKisi(const Mahalle this){
 void nufusArttir_Mahalle(const Mahalle this){}
 void nufusGuncelle_Mahalle(const Mahalle this){}
 Mahalle bolun_Mahalle(const Mahalle this){}
+
+
+void ekranaYazdir_Mahalle(const Mahalle this){
+
+}
+char* toString_Mahalle(const Mahalle this){
+
+} // Override
+void yaslandir_Mahalle(const Mahalle this){
+    for(int i = 0; i < this->kisiSayisi; i++){
+		this->kisiler[i]->yaslandir_Kisi(this->kisiler[i]);
+	}
+}
+
 void delete_Mahalle(Mahalle this){
 	if (this == NULL) return;
 
@@ -92,13 +106,3 @@ void delete_Mahalle(Mahalle this){
     // Mahalleyi sil
     free(this);
 }
-
-void ekranaYazdir_Mahalle(const Mahalle this){
-
-}
-char* toString_Mahalle(const Mahalle this){
-
-} // Override
-void yaslandir_Mahalle(const Mahalle this){
-
-} // Override

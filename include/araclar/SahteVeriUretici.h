@@ -3,7 +3,7 @@ struct SAHTE_VERI_URETICI
 	char* (*getKisiAd)();
 	char* (*getKisiSoyad)();
 	char* (*getSehirAd)();
-	char* (*getKisiYas)();
+	int (*getKisiYas)();
 	char* (*getIlceAd)();
 	char* (*getMahalleAd)();	
 	void (*delete_Svu)();
@@ -15,7 +15,7 @@ typedef struct SAHTE_VERI_URETICI* SahteVeriUretici;
 SahteVeriUretici get_SvuInstance(); 
 char* getKisiAd();
 char* getKisiSoyad();
-char* getKisiYas();
+int getKisiYas();
 char* getSehirAd();
 char* getIlceAd();
 char* getMahalleAd();
