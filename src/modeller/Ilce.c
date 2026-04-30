@@ -81,8 +81,36 @@ int nufusArttir_Ilce(const Ilce this, int artisOrani){
 	this->super->nufus = yeniNufus;
     return this->super->nufus;
 }
-int nufusGuncelle_Ilce(const Ilce this){}
-Ilce bolun_Ilce(const Ilce this){}
+int nufusGuncelle_Ilce(const Ilce this){
+    int toplamNufus = 0;
+
+	// her bir ilçe kendi nüfusunu hesaplar ve döndürür
+	for (int i = 0; i < this->mahalleSayisi; i++) {
+			toplamNufus += this->mahalleler[i]->nufusGuncelle_Mahalle(this->mahalleler[i]);
+	}
+	
+	this->super->nufus = toplamNufus; // yeni nüfus
+    return this->super->nufus;
+}
+Ilce bolun_Ilce(const Ilce this){
+    Ilce yeniIlce = new_Ilce(0);
+	int mahalleSayisi = this->mahalleSayisi;
+
+	// 1 ilçe 1 mahalle:
+	if (mahalleSayisi == 1) {
+		//tek mahalle varsa ilk mahalledir
+		Mahalle yeniMahalle = this->mahalleler[0]->bolun_Mahalle(this->mahalleler[0]);
+		yeniIlce->mahalleEkle(yeniIlce, yeniMahalle);
+	}
+	// 1 ilçe 2 veya 2+ mahalle
+	else {
+		int aktMahSay = mahalleSayisi / 2;
+		for (int i = 0; i < aktMahSay; i++) {
+			yeniIlce->mahalleEkle(yeniIlce, this->popMahalle(this));
+		}
+	}
+	return yeniIlce;
+}
 
 
 

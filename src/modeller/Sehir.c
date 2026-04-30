@@ -86,6 +86,9 @@ void yaslandir_Sehir(Sehir this){
 		this->ilceler[i]->super->yaslandir(this->ilceler[i]);
 	}
 }
+
+// artış oranına göre hesaplaması için bir alt sınıfın metodunu çağırır dönen
+// değerleri toplar
 void nufusArttir_Sehir(const Sehir this){
 	int toplamNufus = 0;
 	int artisOrani = getNufusArtisOrani(this);
@@ -97,8 +100,17 @@ void nufusArttir_Sehir(const Sehir this){
 
 	this->super->nufus = toplamNufus; // yeni nüfus
 }
-void nufusGuncelle_Sehir(const Sehir this){
 
+// ilçelerinin nüfuslarını toplar ve yeni nüfusu hesaplar
+void nufusGuncelle_Sehir(const Sehir this){
+	int toplamNufus = 0;
+
+	// her bir ilçe kendi nüfusunu hesaplar ve döndürür
+	for (int i = 0; i < this->ilceSayisi; i++) {
+		toplamNufus += this->ilceler[i]->nufusGuncelle_Ilce(this->ilceler[i]);
+	}
+	
+	this->super->nufus = toplamNufus; // yeni nüfus
 }
 void ekranaYazdir_Sehir(const Sehir this){
 
@@ -110,7 +122,30 @@ boolean dortBasamakli(const Sehir this){
 	return (this->super->nufus >= 1000);
 }
 Sehir bolun_Sehir(const Sehir this){
+	Sehir yeniSehir = new_Sehir(0);
+		int ilceSayisi = this->ilceSayisi;
 
+		// 1 ilçe
+		if (ilceSayisi == 1) {
+			Ilce yeniIlce = this->ilceler[0]->bolun_Ilce(this->ilceler[0]);
+			yeniSehir->ilceEkle(yeniSehir, yeniIlce);
+		}
+
+		// 2 veya 2+ ilçe
+		else {
+			int aktIlceSay = ilceSayisi / 2;
+
+			for (int i = 0; i < aktIlceSay; i++) {
+				yeniSehir->ilceEkle(yeniSehir, this->popIlce(this));
+			}
+		}
+
+		//yeniSehir'in nüfusunu güncelle
+		yeniSehir->nufusGuncelle_Sehir(yeniSehir);
+		//Ardından eski şehirin
+		this->nufusGuncelle_Sehir(this);
+
+		return yeniSehir;
 }
 void delete_Sehir(const Sehir this){
 	// ilçe yapılarını tek tek sil

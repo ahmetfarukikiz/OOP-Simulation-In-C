@@ -89,8 +89,23 @@ int nufusArttir_Mahalle(const Mahalle this, int artisOrani){
     this->super->nufus = yeniNufus;
     return this->super->nufus;
 }
-int nufusGuncelle_Mahalle(const Mahalle this){}
-Mahalle bolun_Mahalle(const Mahalle this){}
+int nufusGuncelle_Mahalle(const Mahalle this){
+    this->super->nufus = this->kisiSayisi;
+    return this->super->nufus;
+}
+Mahalle bolun_Mahalle(const Mahalle this){
+    Mahalle yeniMahalle = new_Mahalle(0);
+	int kisiSayisi = this->super->nufus;
+
+	// tam sayı bölmesi nüfus tekse fazlalık eskide kalıcak
+	int aktKisiSay = kisiSayisi / 2;
+	for (int i = 0; i < aktKisiSay; i++) {
+		//eski mahalleden kişiler aktarılıyor
+		yeniMahalle->kisiEkle(yeniMahalle, this->popKisi(this));
+	}
+
+	return yeniMahalle;       
+}
 
 
 void ekranaYazdir_Mahalle(const Mahalle this){

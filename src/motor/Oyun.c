@@ -43,12 +43,12 @@ void baslat(Oyun this){
             sehir->nufusArttir_Sehir(sehir);
             sehir->super->yaslandir(sehir);
 
-            // şehrin tur işlemlerinden sonra dört basamaklıysa böl
-            // if (sehir->dortBasamakli(sehir)) {
-            //     Sehir yeniSehir = sehir->bolun_Sehir(sehir);
-            //     yeniSehirler[yeniSehirSayisi] = yeniSehir;
-            //     yeniSehirSayisi++;
-            // }
+            //şehrin tur işlemlerinden sonra dört basamaklıysa böl
+            if (sehir->dortBasamakli(sehir)) {
+                Sehir yeniSehir = sehir->bolun_Sehir(sehir);
+                yeniSehirler[yeniSehirSayisi] = yeniSehir;
+                yeniSehirSayisi++;
+            }
         }
 
         // tur bittikten sonra bölünmeyle gelen şehirleri asıl listeye ekle
