@@ -1,5 +1,13 @@
 struct SAHTE_VERI_URETICI
 {
+	// Verileri ram'de tutacak diziler
+    char** isimler;
+    char** soyisimler;
+    char** sehirler;
+    char** ilceler;
+    char** mahalleler;
+    int veriSayisi;
+
 	char* (*getKisiAd)();
 	char* (*getKisiSoyad)();
 	char* (*getSehirAd)();

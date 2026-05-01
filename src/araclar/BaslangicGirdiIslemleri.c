@@ -7,6 +7,7 @@
 
 // private fonksiyonlar (header'da olmayanlar)
 
+// string halinde gelen veriyi sayı dizisine çevirir
 int *stringiSayiyaCevir(char *sayilarString, int uzunluk, int* sayiDiziUz)
 {
 	int* sayiDizi = (int*)malloc(sizeof(int) * uzunluk);
@@ -27,8 +28,6 @@ int *stringiSayiyaCevir(char *sayilarString, int uzunluk, int* sayiDiziUz)
 }
 
 // public fonksiyonlar
-
-//todo sayiDizinin uzunluğunu da döndürmeli
 
 int* sayiDiziAl(int* sayiDiziUz){
 

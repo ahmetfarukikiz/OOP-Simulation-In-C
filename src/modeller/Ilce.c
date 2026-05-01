@@ -18,10 +18,8 @@ Ilce new_Ilce(int nufus){
 
     this->mahalleler = (Mahalle*)malloc(sizeof(Mahalle) * this->mahalleKapasitesi); 
 
-    char* rastgeleAd = Svu_STATIC->getSehirAd(); 
+    char* rastgeleAd = Svu_STATIC->getIlceAd(); 
     this->super = new_Yerlesim(rastgeleAd, nufus);
-    
-    free(rastgeleAd);
 
     this->getMahalleler = &getMahalleler;
     this->mahalleEkle = &mahalleEkle;

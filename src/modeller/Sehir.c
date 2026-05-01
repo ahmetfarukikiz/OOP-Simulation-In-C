@@ -30,11 +30,8 @@ Sehir new_Sehir(int nufus){
 
 	this->ilceler = (Ilce*)malloc(sizeof(Ilce) * this->ilceKapasitesi); 
 
-	//burası değişebilir todo (belki buffer parametre olarak gönderilebilir)
 	char* rastgeleAd = Svu_STATIC->getSehirAd();
 	this->super = new_Yerlesim(rastgeleAd, nufus);
-	// Svu malloc ile alan açtığındna free ile temizliyoruz
-	free(rastgeleAd);
 
 	this->getIlceler = &getIlceler;
 	this->ilceEkle = &ilceEkle;
@@ -52,9 +49,12 @@ Sehir new_Sehir(int nufus){
 
 	return this;
 }
-Ilce* getIlceler(const Sehir this){
 
+Ilce* getIlceler(const Sehir this){
+	if (this == NULL) return NULL;
+    return this->ilceler;
 }
+
 void ilceEkle(const Sehir this, Ilce ilce){
 	if (this == NULL || ilce == NULL) return;
 

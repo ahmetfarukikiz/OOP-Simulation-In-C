@@ -17,9 +17,8 @@ Mahalle new_Mahalle(int nufus){
     
     this->kisiler = (Kisi*)malloc(sizeof(Kisi) * this->kisiKapasitesi);
 
-    char* rastgeleAd = Svu_STATIC->getSehirAd(); 
+    char* rastgeleAd = Svu_STATIC->getMahalleAd(); 
     this->super = new_Yerlesim(rastgeleAd, nufus);
-    free(rastgeleAd);
 	
     this->getKisiler = &getKisiler;
     this->kisiEkle = &kisiEkle;
