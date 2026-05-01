@@ -1,3 +1,12 @@
+/**
+*
+* @author Ahmet Faruk İkiz faruk.ikiz@ogr.sakarya.edu.tr
+* @since 26.04.2026
+* <p>
+* Mahalleye ait verileri tutar ve bu verilere ait iç (bölünme, yaşlanma vb) hesaplamaları yapar.
+* </p>
+*/
+
 #ifndef MAHALLE_H
 #define MAHALLE_H
 

@@ -1,3 +1,12 @@
+/**
+*
+* @author Ahmet Faruk İkiz faruk.ikiz@ogr.sakarya.edu.tr
+* @since 26.04.2026
+* <p>
+* Yerlesim birimleriyle ilgili ortak bilgileri ve metotları tutan model sınıf.
+* </p>
+*/
+
 #ifndef YERLESIM_H
 #define YERLESIM_H
 

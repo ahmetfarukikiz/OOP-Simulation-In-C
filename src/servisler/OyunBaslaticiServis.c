@@ -60,6 +60,7 @@ Sehir* yerleskeOlustur(const OyunBaslaticiServis this, int* sayiDizi, int sayiDi
 	return sehirler;
 }
 
+// şehir döngüsü
 void ilceleriOlustur(Sehir sehir, int ilceSayisi, int mahalleSayisi){
 	if (sehir == NULL || sehir->super == NULL || ilceSayisi == 0) return;
 
@@ -76,6 +77,7 @@ void ilceleriOlustur(Sehir sehir, int ilceSayisi, int mahalleSayisi){
 	}
 
 }
+// ilçe döngüsü
 void mahalleleriOlustur(Ilce ilce, int mahalleSayisi){
 	if (ilce == NULL || ilce->super == NULL || mahalleSayisi <= 0) return;
 
@@ -87,6 +89,7 @@ void mahalleleriOlustur(Ilce ilce, int mahalleSayisi){
 		ilce->mahalleEkle(ilce, mahalle);
 	}
 }
+// mahalle döngüsü
 void kisileriOlustur(Mahalle mahalle){
 	if (mahalle == NULL || mahalle->super == NULL) return;
 	

@@ -7,6 +7,7 @@
 
 
 //private fonksiyonlar (header'da olmayanlar)
+	// nüfus artışı = onlar + birler
 int getNufusArtisOrani(Sehir this) {
 	int onlar, birler, nufus;
 	nufus = this->super->nufus;
@@ -31,7 +32,7 @@ Sehir new_Sehir(int nufus){
 	this->ilceler = (Ilce*)malloc(sizeof(Ilce) * this->ilceKapasitesi); 
 
 	char* rastgeleAd = Svu_STATIC->getSehirAd();
-	this->super = new_Yerlesim(rastgeleAd, nufus);
+	this->super = new_Yerlesim(rastgeleAd, nufus); // Sehir adi nufusu atamasi
 
 	this->getIlceler = &getIlceler;
 	this->ilceEkle = &ilceEkle;

@@ -1,3 +1,13 @@
+/**
+*
+* @author Ahmet Faruk İkiz faruk.ikiz@ogr.sakarya.edu.tr
+* @since 29.04.2026
+* <p>
+* Aldığı sehir sınıfının verilerini uygun formatta yazdıran servis sınıfı
+* </p>
+*/
+
+
 #ifndef YAZDIR_SERVIS_H
 #define YAZDIR_SERVIS_H
 

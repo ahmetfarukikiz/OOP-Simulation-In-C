@@ -1,3 +1,12 @@
+/**
+*
+* @author Ahmet Faruk İkiz faruk.ikiz@ogr.sakarya.edu.tr
+* @since 27.04.2026
+* <p>
+* Aldığı sayıyı başlangıç kuralına göre hesaplayıp döndüren sınıf
+* </p>
+*/
+
 #ifndef BASLANGIC_KURAL_HESAPLAYICI_H
 #define BASLANGIC_KURAL_HESAPLAYICI_H
 

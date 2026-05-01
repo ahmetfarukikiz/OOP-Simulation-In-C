@@ -7,7 +7,7 @@
 static SahteVeriUretici instance = NULL;
 #define MAX_BUFFER 256
 
-//private
+//private func declaration
 char** dosyaOku(const char* dosyaAdi, int satirSayisi);
 
 // private kurucu get instance ilk kez kullanıldığında çalışır
@@ -40,7 +40,7 @@ SahteVeriUretici new_SahteVeriUretici(){
 //private
 // Dosyadaki verileri okuyup ram'e aktarıp dinamik bir dizide tutan fonksiyon.
 char** dosyaOku(const char* dosyaAdi, int satirSayisi) {
-    char** dizi = (char**)malloc(satirSayisi * sizeof(char*));
+    char** dizi = (char**)calloc(satirSayisi, sizeof(char*));
     FILE* dosya = fopen(dosyaAdi, "r");
     
     if (dosya == NULL) {

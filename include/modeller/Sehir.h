@@ -1,3 +1,12 @@
+/**
+*
+* @author Ahmet Faruk İkiz faruk.ikiz@ogr.sakarya.edu.tr
+* @since 26.04.2026
+* <p>
+* Sehre ait verileri tutar ve bu verilere ait iç hesaplamaları (bölünme vb) yapar.
+* </p>
+*/
+
 #ifndef SEHIR_H
 #define SEHIR_H
 typedef enum{false, true} boolean;

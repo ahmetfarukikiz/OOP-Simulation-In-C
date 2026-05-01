@@ -1,3 +1,12 @@
+/**
+*
+* @author Ahmet Faruk İkiz faruk.ikiz@ogr.sakarya.edu.tr
+* @since 26.04.2026
+* <p>
+* Kisiye ait verileri tutar ve bu verilere ait iç hesaplamaları yapar.
+* </p>
+*/
+
 #ifndef KISI_H
 #define KISI_H
 

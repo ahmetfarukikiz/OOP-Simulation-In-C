@@ -1,8 +1,16 @@
+/**
+*
+* @author Ahmet Faruk İkiz faruk.ikiz@ogr.sakarya.edu.tr
+* @since 27.04.2026
+* <p>
+* Kullanıcıdan alınan string verisini OyunBaşlatıcıServis'in kullanabileceği int[] türüne dönüştürür.
+* </p>
+*/
+
 #ifndef BASLANGIC_GIRDI_ISLEMLERI_H
 #define BASLANGIC_GIRDI_ISLEMLERI_H
 
 
-//TODO NEW VE DELETE FONKSIYONLARI EKLE
 struct BASLANGIC_GIRDI_ISLEMLERI
 {
 	int (*turSayisiAl)();

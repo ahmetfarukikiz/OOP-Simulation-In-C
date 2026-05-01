@@ -4,7 +4,7 @@
 #include "modeller/Kisi.h"
 #include "araclar/SahteVeriUretici.h"
 
-static int NextId = 100;
+static int NextId = 100; //benzersizlik için static id değişkeni
 
 Kisi new_Kisi(){
 	SahteVeriUretici Svu_STATIC = get_SvuInstance();
