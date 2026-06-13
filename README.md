@@ -37,19 +37,18 @@ Gerçek NDP dillerindeki modüler yapıyı C üzerinde sağlayabilmek için sist
 ## ⚙️ Gereksinimler
 
 - C Derleyicisi (GCC / MinGW önerilir)
-- Make (`mingw32-make` veya `make`)
-
+  
 ---
 
 ## 🚀 Derleme ve Çalıştırma
 
-Proje, derleme sürecini otomatize etmek için bir `Makefile` içermektedir. Terminal üzerinden proje kök dizinine giderek aşağıdaki komutları kullanabilirsiniz.
+Proje, derleme sürecini yönetmek etmek için bir `Makefile` içermektedir. Terminal üzerinden proje kök dizinine giderek aşağıdaki komutları kullanabilirsiniz.
 
 ### 1. Derleme
 Projeyi derlemek ve nesne (`.o`) dosyalarını oluşturmak için:
 
 ```bash
-make derle
+mingw32-make derle
 ```
 *Çıktılar `lib/` klasörüne, çalıştırılabilir dosya ise `bin/program.exe` yoluna kaydedilir.*
 
@@ -57,7 +56,7 @@ make derle
 Derlenmiş projeyi başlatmak için:
 
 ```bash
-make calistir
+mingw32-make calistir
 ```
 *(Alternatif olarak doğrudan `./bin/program.exe` komutunu da kullanabilirsiniz.)*
 
@@ -65,7 +64,7 @@ make calistir
 Projeyi tek bir komutla hem derleyip hem çalıştırmak isterseniz:
 
 ```bash
-make hepsi
+mingw32-make hepsi
 ```
 
 ---
